@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thiên Thảo & Minh Hiếu</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#faf7f5;color:#333}
+.hero{padding:80px 20px;text-align:center;background:#fff}
+h1{font-size:48px;margin:10px 0}
+.section{max-width:900px;margin:auto;padding:40px 20px}
+.card{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.countdown{font-size:28px;font-weight:bold;text-align:center}
+footer{text-align:center;padding:30px;color:#666}
+</style>
+</head>
+<body>
+<div class="hero">
+    <h1>Thiên Thảo ❤ Minh Hiếu</h1>
+    <h2>Save The Date</h2>
+    <p>01/01/2027</p>
+</div>
+
+<div class="section">
+    <div class="card">
+        <h2>Lời ngỏ</h2>
+        <p>Chúng tôi trân trọng kính mời gia đình, bạn bè và người thân đến chung vui trong ngày trọng đại của mình.</p>
+    </div>
+</div>
+
+<div class="section">
+    <div class="card">
+        <h2>Thông tin lễ cưới</h2>
+        <p><strong>Cô dâu:</strong> Thiên Thảo</p>
+        <p><strong>Chú rể:</strong> Minh Hiếu</p>
+        <p><strong>Ngày cưới:</strong> 01/01/2027</p>
+        <p><strong>Địa điểm:</strong> Thôn Xuân Đài, xã An Trường, TP Hải Phòng</p>
+    </div>
+</div>
+
+<div class="section">
+    <div class="card">
+        <h2>Đếm ngược ngày cưới</h2>
+        <div id="countdown" class="countdown"></div>
+    </div>
+</div>
+
+<footer>
+Thiên Thảo & Minh Hiếu - 2027
+</footer>
+
+<script>
+const target = new Date("2027-01-01T00:00:00");
+function update(){
+  const now = new Date();
+  const diff = target - now;
+  if(diff <= 0){
+    document.getElementById("countdown").innerHTML = "Hôm nay là ngày cưới!";
+    return;
+  }
+  const d = Math.floor(diff/86400000);
+  const h = Math.floor((diff%86400000)/3600000);
+  const m = Math.floor((diff%3600000)/60000);
+  const s = Math.floor((diff%60000)/1000);
+  document.getElementById("countdown").innerHTML =
+    d+" ngày "+h+" giờ "+m+" phút "+s+" giây";
+}
+setInterval(update,1000);
+update();
+</script>
+</body>
+</html>
